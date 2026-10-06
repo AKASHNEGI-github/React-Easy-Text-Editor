@@ -1,0 +1,80 @@
+{
+  "name": "react-easy-text-editor",
+  "version": "1.0.0",
+  "description": "A React rich text (WYSIWYG) editor inspired by Jodit: plugin toolbar, tables, tabbed code blocks with syntax highlighting, dark mode, HTML source view, and a read-only viewer component.",
+  "keywords": [
+    "react",
+    "react-editor",
+    "react-text-editor",
+    "text-editor",
+    "rich-text-editor",
+    "wysiwyg",
+    "wysiwyg-editor",
+    "html-editor",
+    "contenteditable",
+    "editor",
+    "typescript"
+  ],
+  "author": "Akash Negi",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./style.css": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --config vite.lib.config.js",
+    "build:demo": "vite build",
+    "build:hljs-css": "node scripts/generate-hljs-css.mjs",
+    "preview": "vite preview",
+    "lint": "oxlint src build scripts",
+    "check:css": "node scripts/check-css-scope.mjs",
+    "check:package": "publint && attw --pack . --profile node16 --exclude-entrypoints style.css dist/style.css",
+    "test:package": "node scripts/smoke-test.mjs",
+    "prepublishOnly": "npm run lint && npm run build && npm run check:css && npm run check:package"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "dependencies": {
+    "highlight.js": "^11.12.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "postcss": "^8.5.6",
+    "publint": "^0.3.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.2.0"
+  }
+}
