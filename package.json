@@ -17,6 +17,11 @@
   ],
   "author": "Akash Negi",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKASHNEGI-github/React-Easy-Text-Editor.git"
+  },
+  "homepage": "https://github.com/AKASHNEGI-github/React-Easy-Text-Editor#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
